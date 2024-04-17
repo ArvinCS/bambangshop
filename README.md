@@ -78,6 +78,20 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-1
 
+> In the Observer pattern diagram explained by the Head First Design Pattern book, Subscriber is defined as an interface. Explain based on your understanding of Observer design patterns, do we still need an interface (or trait in Rust) in this BambangShop case, or a single Model struct is enough?
+
+Using interface in Observer pattern allows us to extend and scale easier. This also follows the SOLID principle. In this BambangShop current case, single Model struct is actually enough, but using interface will make the code more scalable in the future plan.
+
+> id in Program and url in Subscriber is intended to be unique. Explain based on your understanding, is using Vec (list) sufficient or using DashMap (map/dictionary) like we currently use is necessary for this case?
+
+Using Vec (list) or using DashMap are both sufficient. It is just a matter of time complexity. Vec is just a list, so the time complexity of searching an element is O(n). DashMap is a map, so the time complexity of searching an element is O(1). Note that, DashMap has a probabillity of collision (although it is small), which is sometimes cost more than O(1). But, if in this case, the number of elements is small, so using Vec is still sufficient.
+
+> When programming using Rust, we are enforced by rigorous compiler constraints to make a thread-safe program. In the case of the List of Subscribers (SUBSCRIBERS) static variable, we used the DashMap external library for thread safe HashMap. Explain based on your understanding of design patterns, do we still need DashMap or we can implement Singleton pattern instead?
+
+Both are good in their own way. Singleton make it easy to safe access the data, but doesn't cover up the thread safe issues. In the other hand, DashMap helps us for thread safe access.
+
 #### Reflection Publisher-2
+
+
 
 #### Reflection Publisher-3

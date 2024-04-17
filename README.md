@@ -105,3 +105,15 @@ The code complexity will be higher. The interactions between each model will be 
 Postman is a tool for testing web endpoints using HTTP requests. It helps me to test my current work by sending HTTP requests to the endpoints that I have created. It also helps me to test the response of the endpoints.
 
 #### Reflection Publisher-3
+
+> Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+In this tutorial case, we used push model. The publisher sends the notification to the subscriber, then the subscriber does not need to request the notification from the publisher. This model is used in the notify function in the Notification service, where the publisher sends the notification to the subscriber.
+
+> What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+It is simpler and more flexible if we used Pull. We can filter which notification data we want to receive. But, the disadvantages is the subscriber needs to keep sending request the notification from the publisher, which is not efficient. That could lead to high latency in the process.
+
+> Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+If we decide to not use multi-threading in the notification process, the program will be slower and potentially halted. It is because the program will wait until the notification process is done to process the next one. This will lead to high latency in the process.
